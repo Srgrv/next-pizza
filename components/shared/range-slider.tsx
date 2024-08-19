@@ -1,3 +1,5 @@
+"use client";
+
 // Что делает forwardRef: Позволяет передавать ссылку (ref) из родительского компонента в дочерний функциональный компонент.
 import React from "react";
 import * as SliderPrimitive from "@radix-ui/react-slider";
