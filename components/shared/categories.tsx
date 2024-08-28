@@ -14,8 +14,8 @@ interface IProps {
 const cats = [
   { id: 1, name: "Пиццы" },
   { id: 2, name: "Комбо" },
-  { id: 3, name: "Закуски" },
-  { id: 4, name: "Коктейли" },
+  { id: 3, name: "Коктейли" },
+  { id: 4, name: "Закуски" },
   { id: 5, name: "Кофе" },
   { id: 6, name: "Напитки" },
   { id: 7, name: "Десерты" },
