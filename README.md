@@ -34,3 +34,10 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+Подключение prismа, что-то наподобие mongoose, который позволяет общаться с базой данных, например таких как - mongodb, vercel и тп.
+
+1. npm i prisma @prisma/client
+2. Создаем отдельную папку, которая будет отвечать за подключение через prisma к нашей базы данных (prisma)
+3. В ней создаем файл, назовем например prisma-client.ts
+4. В этом файле будем создавать минимальные настройки для prisma, для этого вставляем код из https://www.prisma.io/docs/orm/more/help-and-troubleshooting/help-articles/nextjs-prisma-client-dev-practices
