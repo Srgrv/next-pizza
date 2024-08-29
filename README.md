@@ -62,10 +62,17 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 Связи в Prisma. One-to-one, One-to-many, Many-to-one, Many-to-many (relationship)
 
-1. Создание модели Category и связь его с Products (One-to-many)
-2. Создание модели Ingredient и связь его с Products (Many-to-many)
-3. Создание модели ProductItem и связь его с Products (One-to-many)
-4. Создание модели Cart и связь его с User (One-to-one)
-5. Cоздание модели CartItem и связь его с Cart (Many-to-one)
-6. Cоздание модели CartItem и связь его с ProductItem (Many-to-one)
-7. Cоздание модели CartItem и связь его с Ingredient (one-to-many)
+1. schema.prisma. Создание модели Category и связь его с Products (One-to-many)
+2. schema.prisma. Создание модели Ingredient и связь его с Products (Many-to-many)
+3. schema.prisma. Создание модели ProductItem и связь его с Products (One-to-many)
+4. schema.prisma. Создание модели Cart и связь его с User (One-to-one)
+5. schema.prisma. Cоздание модели CartItem и связь его с Cart (Many-to-one)
+6. schema.prisma. Cоздание модели CartItem и связь его с ProductItem (Many-to-one)
+7. schema.prisma. Cоздание модели CartItem и связь его с Ingredient (one-to-many)
+8. schema.prisma. Создание типа данных enum UserRole и установлено свойстов role для User, а также два свойства provider, providerId
+9. schema.prisma. Cоздание модели Order и связь его с User (many-to-one)
+10. schema.prisma. Cоздание модели VerificationCode и связь его с User (one-to-one)
+11. package.json. Запускаем команду prisma:push (создается база данных в prisma studio)
+12. package.json. Запускаем команду prisma:studio (Запуск панели управления для работы с базой данных)
+13. бд. Удалить всех предыдущих user-ов, так как были одинаковые email
+14. package.json. Запускаем команду prisma:push (создается база данных в prisma studio)

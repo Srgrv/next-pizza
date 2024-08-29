@@ -34,9 +34,18 @@ model User {
     fullName String
     email String @unique
     password String
+    role UserRole @default(USER)
+    provider String?
+    providerId String?
 
     // связь one-to-one
     cart Cart?
+
+    // связь one-to-many
+    orders Order[]
+
+    // связь one-to-one
+    verificationCode VerificationCode?
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
@@ -131,7 +140,7 @@ model CartItem {
     // связь many-to-one
     cart Cart @relation(fields: [cartId], references: [id])
     cartId Int
-    
+
     // связь many-to-one
     productItem ProductItem @relation(fields: [productItemId], references: [id])
     productItemId Int
@@ -142,4 +151,52 @@ model CartItem {
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
+}
+
+model Order {
+    id Int @id @default(autoincrement())
+    token String
+    totalAmount Int
+    status OrderStatus
+    paymentId String?
+    items Json
+    fullName String
+    address String
+    email String
+    phone String
+    comment String?
+
+    // связь many-to-one
+    user User? @relation(fields: [userId], references: [id])
+    userId Int?
+
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model VerificationCode {
+    id Int @id @default(autoincrement())
+    code String @unique
+
+    @@unique([userId, code])    
+
+    // связь one-to-one
+    user User @relation(fields: [userId], references: [id])
+    userId Int @unique
+
+    createdAt DateTime @default(now())
+}
+
+// создание типа данных OrderStatus
+enum OrderStatus {
+    PENDING
+    SUCCEEDED
+    CANCELLED
+}
+
+// создание типа данных UserRole
+enum UserRole {
+    USER
+    ADMIN
 }
