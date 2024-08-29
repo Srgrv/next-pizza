@@ -66,3 +66,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 2. Создание модели Ingredient и связь его с Products (Many-to-many)
 3. Создание модели ProductItem и связь его с Products (One-to-many)
 4. Создание модели Cart и связь его с User (One-to-one)
+5. Cоздание модели CartItem и связь его с Cart (Many-to-one)
+6. Cоздание модели CartItem и связь его с ProductItem (Many-to-one)
+7. Cоздание модели CartItem и связь его с Ingredient (one-to-many)
