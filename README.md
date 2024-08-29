@@ -41,3 +41,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 2. Создаем отдельную папку, которая будет отвечать за подключение через prisma к нашей базы данных (prisma)
 3. В ней создаем файл, назовем например prisma-client.ts
 4. В этом файле будем создавать минимальные настройки для prisma, для этого вставляем код из https://www.prisma.io/docs/orm/more/help-and-troubleshooting/help-articles/nextjs-prisma-client-dev-practices
+5. Создаем там же схему, назовем например schema.prisma, которая будет описывать схему нашей базы данных. Для того, чтобы автоматически работало исправление синтаксиса, можно установить плагин Prisma
+6. Создаем базу данных, для этого переходим на vercel. Далее нашу базу данных нужно подключить к prisma
+7. Создаем .env файл, туда вставляем переменные из vercel из .env.local
+8. Пишем в терминале npx prisma db push, берется файл prisma.schema, просходит подключение к vercel базе данных
+9. Указываем все скрипты связанных с prisma в package.json
+   - "prisma: push": "prisma db push" - Создание базы данных
+   - "prisma: studio": "prisma studio" - Запуск панели управления для работы с базой данных
+10. Запускаем команду prisma:studio (создается база данных в prisma studio)
