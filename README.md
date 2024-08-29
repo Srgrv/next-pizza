@@ -59,3 +59,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
    - валидация данных
    - типизация данных
 4. schema.prisma. В схеме User нужно сделать email уникальным
+
+Связи в Prisma. One-to-one, One-to-many, Many-to-one, Many-to-many (relationship)
+
+1. Создание модели Category и связь его с Products (One-to-many)
+2. Создание модели Ingredient и связь его Products (Many-to-many)

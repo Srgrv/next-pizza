@@ -39,13 +39,38 @@ model User {
     updatedAt DateTime @updatedAt
 }
 
-model Product {
+model Category {
     id Int @id @default(autoincrement())
-    name String
-    imageUrl String
+    name String @unique
+    products Product[]
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
 
-// 2:50:45 поключаем базу данных с призмой
+model Product {
+    id Int @id @default(autoincrement())
+    name String
+    imageUrl String
+
+    ingredients Ingredient[] 
+
+    category Category @relation(fields: [categoryId], references: [id])
+    categoryId Int
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model Ingredient {
+    id Int @id @default(autoincrement())
+
+    name String
+    price Int
+    imageUrl String
+
+    products Product[] 
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
