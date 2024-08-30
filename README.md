@@ -111,3 +111,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 39. api. Создаем папку ingredients
 40. ingredients. Создаем файл route.ts
 41. route.ts. Создаем API для получения ингредиентов
+
+Создаем API для продуктов (5:18:30)  
+42. api. Создаем папку products.  
+43. products. Создаем папку search  
+43. search. Создаем файл route.ts  
+44. route.ts. Создаем API для получения продуктов
