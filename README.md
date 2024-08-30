@@ -60,7 +60,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
    - типизация данных
 4. schema.prisma. В схеме User нужно сделать email уникальным
 
-Связи в Prisma. One-to-one, One-to-many, Many-to-one, Many-to-many (relationship)
+Связи в Prisma. One-to-one, One-to-many, Many-to-one, Many-to-many (relationship) (3:10:30)
 
 1. schema.prisma. Создание модели Category и связь его с Products (One-to-many)
 2. schema.prisma. Создание модели Ingredient и связь его с Products (Many-to-many)
@@ -76,3 +76,13 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 12. package.json. Запускаем команду prisma:studio (Запуск панели управления для работы с базой данных)
 13. бд. Удалить всех предыдущих user-ов, так как были одинаковые email
 14. package.json. Запускаем команду prisma:push (создается база данных в prisma studio)
+
+Пишем скрипт для генерации тестовых данных
+
+15. prisma. Создаем файл под названием seed.ts
+16. package.json. Пишем скрипт "prisma:seed": "prisma db seed"
+17. package.json. Добавляем свойство "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+    },
+18. Терминал. Установить npm i ts-node
+19. seed.ts.
