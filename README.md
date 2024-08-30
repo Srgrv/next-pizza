@@ -105,3 +105,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 36. seed.ts. Создаем функции для заполнения корзины
 37. seed.ts. Дополняем функции для удаления Cart, CartItem
 38. package.json. Запускаем команду prisma:seed (очищение, а затем генерация базы данных)
+
+Создаем API для ингредиентов (5:15:30)
+
+39. api. Создаем папку ingredients
+40. ingredients. Создаем файл route.ts
+41. route.ts. Создаем API для получения ингредиентов
