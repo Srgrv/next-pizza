@@ -85,4 +85,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
     },
 18. Терминал. Установить npm i ts-node
-19. seed.ts.
+19. schema.prisma. Добавлено свойство verified DateTime в модель User
+20. package.json. Запускаем команду prisma:push (создается база данных в prisma studio)
+21. Терминал. Установить npm i @types/bcrypt bcrypt
+22. seed.ts. Создаем функции, которые будут вызываться для очищения, заполнения базы данных
+23. package.json. Запускаем команду prisma:seed (очищение, а затем генерация списка пользователей)
+24. prisma. Создаем файл constants.ts
+25. contants.ts. Создаем категории и экспортируем
+26. package.json. Запускаем команду prisma:seed (очищение, а затем генерация базы данных)
