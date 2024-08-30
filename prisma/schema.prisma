@@ -37,7 +37,7 @@ model User {
     role UserRole @default(USER)
     provider String?
     providerId String?
-    verified Boolean
+    verified DateTime
 
     // связь one-to-one
     cart Cart?
