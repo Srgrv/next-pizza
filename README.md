@@ -112,8 +112,25 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 40. ingredients. Создаем файл route.ts
 41. route.ts. Создаем API для получения ингредиентов
 
-Создаем API для продуктов (5:18:30)  
-42. api. Создаем папку products.  
-43. products. Создаем папку search  
-43. search. Создаем файл route.ts  
-44. route.ts. Создаем API для получения продуктов
+Создаем API для продуктов (5:18:30)
+
+42. api. Создаем папку products.
+43. products. Создаем папку search
+44. search. Создаем файл route.ts
+45. route.ts. Создаем API для получения продуктов
+
+Делаем поиск на фронтенде (5:24:30)
+
+46. header.tsx. Добавлен Link из next, который оборачивает div
+47. my-app. Создаем папку servives
+48. services. Создаем файл constants.ts
+49. constants.ts. Определяем перечисление (enum) ApiRoutes, которое содержит ключи для маршрутов API.
+50. services. Создаем файл instance.ts
+51. Терминал. Установк npm i axios
+52. instance.ts Создаем и экспортируем экземпляр axios с настроенным базовым URL
+53. services. Создаем файл products.ts
+54. products.ts. Описываем метод для поиска наших продуктов
+55. services. Создаем файл api-client.ts
+56. api-clients.ts Создаем и экспортируем объект Api, который включает в себя все экспортируемые сущности из модуля ./products
+57. shared. Создаем файл search-input.tsx
+58. search-input.tsx. Создаем компонент, который использует функциональные возможности для создания поля поиска с динамическими результатами
