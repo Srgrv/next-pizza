@@ -13,6 +13,7 @@ import { Ingredient } from "@prisma/client";
 interface ReturnProps {
   ingredients: Ingredient[];
   loading: boolean;
+  selectedIds: Set<string>;
 }
 
 export const useFilterIngredients = (): ReturnProps => {
