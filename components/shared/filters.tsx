@@ -67,6 +67,7 @@ export const Filters: React.FC<IProps> = ({ className }) => {
         items={items}
         loading={loading}
         onClickCheckbox={onAddId}
+        selectedIDs={selectedIds}
       />
     </div>
   );

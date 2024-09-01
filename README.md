@@ -152,4 +152,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 73. hooks/useFilterIngredients. Добавление свойства onAddId: (id: string) => void; в ReturnsProps  
 74. components/shared/filters. Извлечение свойств selectedIds и onAddId  
 75. components/shared/filters. Передача onClickCheckbox={onAddId} в виде пропса в CheckboxFilterGroup  
-76. components/shared/checkbox-filters-group. Добавление свойства selectedIDs: Set<string> в interface IProps
+76. components/shared/checkbox-filters-group. Добавление свойства selectedIDs: Set<string> в interface IProps  
+77. components/shared/filters. Передача selectedIDs={selectedIds} в виде пропса в CheckboxFilterGroup  
+78. components/shared/checkbox-filters-group. Извлечение свойства selectedIDs из пропсов, а также передача checked={selectedIDs.has(item.value)} в виде пропса в FilterCheckbox

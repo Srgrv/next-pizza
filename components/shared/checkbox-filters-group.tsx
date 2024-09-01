@@ -34,6 +34,7 @@ export const CheckboxFilterGroup: React.FC<IProps> = ({
   searchInputPlaceholder = "Поиск...",
   onClickCheckbox,
   defaultValue,
+  selectedIDs,
 
   className,
 }) => {
@@ -86,7 +87,7 @@ export const CheckboxFilterGroup: React.FC<IProps> = ({
         {list.map((item, index) => (
           <FilterCheckbox
             onCheckedChange={() => onClickCheckbox?.(item.value)}
-            checked={false}
+            checked={selectedIDs.has(item.value)}
             key={index}
             value={item.value}
             text={item.text}
