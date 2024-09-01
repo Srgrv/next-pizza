@@ -134,3 +134,17 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 56. api-clients.ts Создаем и экспортируем объект Api, который включает в себя все экспортируемые сущности из модуля ./products
 57. shared. Создаем файл search-input.tsx
 58. search-input.tsx. Создаем компонент, который использует функциональные возможности для создания поля поиска с динамическими результатами
+
+Доделываем модальное окно продукта (5:56:25)  
+59. services. Создаем папку ingredients  
+60. products.ts. Описываем метод для поиска наших ingredients  
+61. services.contants. Добавляем переменную маршрута 'ingredients  
+62. api-clients.ts Создаем и экспортируем объект Api, который включает в себя все экспортируемые сущности из модуля ./ingredients 63. components.shared.search-input. Добавление конструкции trycatch, изменения than на async/await  
+64. my-app. Создаем папку под названием hooks 64. hooks.  
+65. hooks. Создаем файл useFilterIngredients  
+66. hooks/useFilterIngredients. Создание хука для получения списка ингредиентов и отображения их в виде списка (try-catch)  
+67. components/shared/filters. Добавление хука для получения ingredients  
+68. components/shared/checkbox-filters-group. Добавление Skeleton  
+69. hooks/useFilterIngredients. Добавление loading  
+70. hooks/useFilterIngredients. Добавление useSet  
+71. components/shardd/filters. Передача через пропсы функции выделения чекбокса

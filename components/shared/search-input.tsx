@@ -2,7 +2,7 @@
 
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import Link from "next/link";
 
 // components
@@ -16,9 +16,10 @@ import { cn } from "@/lib/utils";
 // hooks
 import { useClickAway, useDebounce } from "react-use";
 import { Api } from "@/services/api-client";
-import { Product } from "@prisma/client";
 
 // intefaces and types
+import { Product } from "@prisma/client";
+
 interface IProps {
   className?: string;
 }
@@ -40,10 +41,15 @@ export const SearchInput: React.FC<IProps> = ({ className }) => {
   });
 
   useDebounce(
-    () => {
-      Api.products.search(searchQuery).then((items) => {
-        setProducts(items);
-      });
+    // 63. components.shared.search-input. Добавление конструкции trycatch, изменения than на async/await
+    async () => {
+      try {
+        Api.products.search(searchQuery).then((items) => {
+          setProducts(items);
+        });
+      } catch (error) {
+        console.log(error);
+      }
     },
     250,
     [searchQuery]
@@ -79,6 +85,7 @@ export const SearchInput: React.FC<IProps> = ({ className }) => {
           >
             {products.map((product) => (
               <Link
+                key={product.id}
                 onClick={onClickItem}
                 href={`/product/${product.id}`}
                 className="flex items-center gap-3 px-3 py-2 hover:bg-primary/10 cursor-pointer"

@@ -6,8 +6,6 @@ export async function GET(req: NextRequest) {
   // const query = req.nextUrl.searchParams.get("query") || "";
   const query = (req.nextUrl.searchParams.get("query") || "").trim();
 
-  console.log(query);
-
   const products = await prisma.product.findMany();
 
   const filteredProducts = query
@@ -25,8 +23,6 @@ export async function GET(req: NextRequest) {
   //   },
   //   take: 5,
   // });
-
-  console.log(filteredProducts);
 
   return NextResponse.json(filteredProducts);
 }
