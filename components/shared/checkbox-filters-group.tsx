@@ -22,6 +22,7 @@ interface IProps {
   onClickCheckbox?: (id: string) => void;
   defaultValue?: string[];
   className?: string;
+  selectedIDs: Set<string>;
 }
 
 export const CheckboxFilterGroup: React.FC<IProps> = ({
@@ -33,6 +34,7 @@ export const CheckboxFilterGroup: React.FC<IProps> = ({
   searchInputPlaceholder = "Поиск...",
   onClickCheckbox,
   defaultValue,
+
   className,
 }) => {
   // showAll: состояние для управления, показывать ли все фильтры или только те, которые по умолчанию.
