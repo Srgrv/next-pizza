@@ -14,6 +14,7 @@ interface ReturnProps {
   ingredients: Ingredient[];
   loading: boolean;
   selectedIds: Set<string>;
+  onAddId: (id: string) => void;
 }
 
 export const useFilterIngredients = (): ReturnProps => {
@@ -41,5 +42,5 @@ export const useFilterIngredients = (): ReturnProps => {
     getIngredients();
   }, []);
 
-  return { ingredients, loading };
+  return { ingredients, loading, onAddId: toggle, selectedIds };
 };

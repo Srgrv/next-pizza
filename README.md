@@ -148,4 +148,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 69. hooks/useFilterIngredients. Добавление loading  
 70. hooks/useFilterIngredients. Добавление useSet  
 71. hooks/useFilterIngredients. Переименование state на selectedIds  
-72. hooks/useFilterIngredients. Добавление пропса selectedIds: Set<string> в ReturnsProps
+72. hooks/useFilterIngredients. Добавление пропса selectedIds: Set<string> в ReturnsProps  
+73. hooks/useFilterIngredients. Добавление свойства onAddId: (id: string) => void; в ReturnsProps
