@@ -147,4 +147,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 68. components/shared/checkbox-filters-group. Добавление Skeleton  
 69. hooks/useFilterIngredients. Добавление loading  
 70. hooks/useFilterIngredients. Добавление useSet  
-71. components/shardd/filters. Передача через пропсы функции выделения чекбокса
+72. hooks/useFilterIngredients. Переименование state на selectedIds

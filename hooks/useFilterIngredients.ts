@@ -22,7 +22,7 @@ export const useFilterIngredients = (): ReturnProps => {
   const [loading, setLoading] = useState<boolean>(true);
 
   // 70. hooks/useFilterIngredients. Добавление useSet
-  const [set, { toggle }] = useSet(new Set<string>([]));
+  const [selectedIds, { toggle }] = useSet(new Set<string>([]));
 
   useEffect(() => {
     async function getIngredients() {
