@@ -22,7 +22,7 @@ interface IProps {
 
 export const Filters: React.FC<IProps> = ({ className }) => {
   // 67. Добавление хука для получения ingredients
-  const { ingredients, loading } = useFilterIngredients();
+  const { ingredients, loading, selectedIds, onAddId } = useFilterIngredients();
 
   const items = ingredients.map((item) => ({
     value: String(item.id),
