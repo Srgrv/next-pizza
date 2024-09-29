@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useSet } from "react-use";
 
 // components
 import { Title } from "./title";
@@ -28,6 +29,9 @@ interface IPriceProps {
 export const Filters: React.FC<IProps> = ({ className }) => {
   // 67. Добавление хука для получения ingredients
   const { ingredients, loading, selectedIds, onAddId } = useFilterIngredients();
+
+  const [sizes, { toggle: toggleSizes }] = useSet(new Set<string>([]));
+
   const [prices, setPrice] = useState<IPriceProps>({
     priceFrom: 0,
     priceTo: 1000,
@@ -51,10 +55,23 @@ export const Filters: React.FC<IProps> = ({ className }) => {
 
       {/* Верхние чекбоксы */}
 
-      <div className="flex flex-col gap-4">
+      {/* <div className="flex flex-col gap-4">
         <FilterCheckbox text="Можно собирать" value="1" />
         <FilterCheckbox text="Новинки" value="2" />
-      </div>
+      </div> */}
+
+      <CheckboxFilterGroup
+        title="Размеры"
+        name="sizes"
+        className="mb-5"
+        onClickCheckbox={toggleSizes}
+        selected={sizes}
+        items={[
+          { text: "20 см", value: "20" },
+          { text: "30 см", value: "30" },
+          { text: "40 см", value: "40" },
+        ]}
+      />
 
       {/* Фильтры цен */}
 
@@ -99,7 +116,7 @@ export const Filters: React.FC<IProps> = ({ className }) => {
         items={items}
         loading={loading}
         onClickCheckbox={onAddId}
-        selectedIDs={selectedIds}
+        selected={selectedIds}
         name="ingredients"
       />
     </div>

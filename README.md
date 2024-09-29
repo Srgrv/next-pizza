@@ -162,4 +162,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Переименование selectedIDs в selected
 - Изменено логика отображения в случае, если showAll false
 
-81.
+81. components/shared/filters:
+
+- Импортирован хук useSet
+- Использован useSet для добавления размеров
+- Добавлен компонент checkbox-filters-group для отображения выбора размеров
