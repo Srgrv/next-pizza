@@ -167,3 +167,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Импортирован хук useSet
 - Использован useSet для добавления размеров
 - Добавлен компонент checkbox-filters-group для отображения выбора размеров
+
+82. hooks/useFilterIngredients. Переименование selectedIds в selectedIngredients в ReturnProps
