@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 // components
 import { Title } from "./title";
@@ -20,9 +20,25 @@ interface IProps {
   className?: string;
 }
 
+interface IPriceProps {
+  priceFrom: number;
+  priceTo: number;
+}
+
 export const Filters: React.FC<IProps> = ({ className }) => {
   // 67. Добавление хука для получения ingredients
   const { ingredients, loading, selectedIds, onAddId } = useFilterIngredients();
+  const [prices, setPrice] = useState<IPriceProps>({
+    priceFrom: 0,
+    priceTo: 1000,
+  });
+
+  const updatePrice = (name: keyof IPriceProps, value: number) => {
+    setPrice({
+      ...prices,
+      [name]: value,
+    });
+  };
 
   const items = ingredients.map((item) => ({
     value: String(item.id),
@@ -50,11 +66,27 @@ export const Filters: React.FC<IProps> = ({ className }) => {
             placeholder="0"
             min={0}
             max={1000}
-            defaultValue={0}
+            value={String(prices.priceFrom)}
+            onChange={(e) => updatePrice("priceFrom", Number(e.target.value))}
           />
-          <Input type="number" placeholder="1000" min={100} max={1000} />
+          <Input
+            type="number"
+            placeholder="1000"
+            min={100}
+            max={1000}
+            value={String(prices.priceTo)}
+            onChange={(e) => updatePrice("priceTo", Number(e.target.value))}
+          />
         </div>
-        <RangeSlider min={0} max={5000} step={10} value={[0, 500]} />
+        <RangeSlider
+          min={0}
+          max={1000}
+          step={10}
+          value={[prices.priceFrom, prices.priceTo]}
+          onValueChange={([priceFrom, priceTo]) =>
+            setPrice({ priceFrom, priceTo })
+          }
+        />
       </div>
 
       {/*Поиск ингридиентов*/}
@@ -68,6 +100,7 @@ export const Filters: React.FC<IProps> = ({ className }) => {
         loading={loading}
         onClickCheckbox={onAddId}
         selectedIDs={selectedIds}
+        name="ingredients"
       />
     </div>
   );

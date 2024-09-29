@@ -140,7 +140,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 60. products.ts. Описываем метод для поиска наших ingredients  
 61. services.contants. Добавляем переменную маршрута 'ingredients  
 62. api-clients.ts Создаем и экспортируем объект Api, который включает в себя все экспортируемые сущности из модуля ./ingredients 63. components.shared.search-input. Добавление конструкции trycatch, изменения than на async/await  
-64. my-app. Создаем папку под названием hooks 64. hooks.  
+64. my-app. Создаем папку под названием hooks  
 65. hooks. Создаем файл useFilterIngredients  
 66. hooks/useFilterIngredients. Создание хука для получения списка ингредиентов и отображения их в виде списка (try-catch)  
 67. components/shared/filters. Добавление хука для получения ingredients  
@@ -154,4 +154,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 75. components/shared/filters. Передача onClickCheckbox={onAddId} в виде пропса в CheckboxFilterGroup  
 76. components/shared/checkbox-filters-group. Добавление свойства selectedIDs: Set<string> в interface IProps  
 77. components/shared/filters. Передача selectedIDs={selectedIds} в виде пропса в CheckboxFilterGroup  
-78. components/shared/checkbox-filters-group. Извлечение свойства selectedIDs из пропсов, а также передача checked={selectedIDs.has(item.value)} в виде пропса в FilterCheckbox
+78. components/shared/checkbox-filters-group. Извлечение свойства selectedIDs из пропсов, а также передача checked={selectedIDs.has(item.value)} в виде пропса в FilterCheckbox  
+79. components/shared/filters. Добавляем логику для фильтрации по цене

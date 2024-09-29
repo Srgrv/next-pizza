@@ -23,6 +23,7 @@ interface IProps {
   defaultValue?: string[];
   className?: string;
   selectedIDs: Set<string>;
+  name?: string;
 }
 
 export const CheckboxFilterGroup: React.FC<IProps> = ({
@@ -35,7 +36,7 @@ export const CheckboxFilterGroup: React.FC<IProps> = ({
   onClickCheckbox,
   defaultValue,
   selectedIDs,
-
+  name,
   className,
 }) => {
   // showAll: состояние для управления, показывать ли все фильтры или только те, которые по умолчанию.
@@ -87,11 +88,12 @@ export const CheckboxFilterGroup: React.FC<IProps> = ({
         {list.map((item, index) => (
           <FilterCheckbox
             onCheckedChange={() => onClickCheckbox?.(item.value)}
-            checked={selectedIDs.has(item.value)}
+            checked={selectedIDs?.has(item.value)}
             key={index}
             value={item.value}
             text={item.text}
             endAdornment={item.endAdornment}
+            name={name}
           />
         ))}
       </div>
