@@ -174,3 +174,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Переименование selectedIds в selectedIngredients
 - Использован useSet для добавления типов теста
 - Добавлен компонент checkbox-filters-group для отображения выбора теста
+
+84. Импорт npm i @types/qs qs
+85.
