@@ -176,4 +176,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Добавлен компонент checkbox-filters-group для отображения выбора теста
 
 84. Импорт npm i @types/qs qs
-85.
+85. components/shared/filters:
+
+- Импорт qs
+- Импорт useRouter из next/navigation
+- Изменение на необязательный параметр priceFrom, priceTo в interface IPriceProps
+- Использование useRouter
+- Удаление из useState<IPriceProps> дефолтных значений
+- Добавление useEffect, где происходит формирования объекта параметров с использование qs и добавление их в поисковую строку при помощи router.push()

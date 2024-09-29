@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { useSet } from "react-use";
+import qs from "qs";
+import { useRouter } from "next/navigation";
 
 // components
 import { Title } from "./title";
@@ -22,11 +24,13 @@ interface IProps {
 }
 
 interface IPriceProps {
-  priceFrom: number;
-  priceTo: number;
+  priceFrom?: number;
+  priceTo?: number;
 }
 
 export const Filters: React.FC<IProps> = ({ className }) => {
+  const router = useRouter();
+
   // 67. Добавление хука для получения ingredients
   const { ingredients, loading, selectedIngredients, onAddId } =
     useFilterIngredients();
@@ -36,10 +40,7 @@ export const Filters: React.FC<IProps> = ({ className }) => {
     new Set<string>([])
   );
 
-  const [prices, setPrice] = useState<IPriceProps>({
-    priceFrom: 0,
-    priceTo: 1000,
-  });
+  const [prices, setPrice] = useState<IPriceProps>({});
 
   const updatePrice = (name: keyof IPriceProps, value: number) => {
     setPrice({
@@ -53,17 +54,18 @@ export const Filters: React.FC<IProps> = ({ className }) => {
     text: item.name,
   }));
 
-  React.useEffect(
-    () =>
-      console.log({
-        prices,
-        pizzaTypes,
-        sizes,
-        ingredients,
-        selectedIngredients,
-      }),
-    [prices, pizzaTypes, sizes, ingredients, selectedIngredients]
-  );
+  React.useEffect(() => {
+    const filters = {
+      ...prices,
+      pizzaTypes: Array.from(pizzaTypes),
+      sizes: Array.from(sizes),
+      ingredients: Array.from(selectedIngredients),
+    };
+
+    const query = qs.stringify(filters, { arrayFormat: "comma" });
+
+    router.push(`?${query}`);
+  }, [prices, pizzaTypes, sizes, ingredients, selectedIngredients, router]);
 
   return (
     <div className={cn("sticky top-[130px]", className)}>
@@ -127,7 +129,7 @@ export const Filters: React.FC<IProps> = ({ className }) => {
           min={0}
           max={1000}
           step={10}
-          value={[prices.priceFrom, prices.priceTo]}
+          value={[prices.priceFrom || 0, prices.priceTo || 1000]}
           onValueChange={([priceFrom, priceTo]) =>
             setPrice({ priceFrom, priceTo })
           }
