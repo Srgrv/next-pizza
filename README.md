@@ -169,3 +169,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Добавлен компонент checkbox-filters-group для отображения выбора размеров
 
 82. hooks/useFilterIngredients. Переименование selectedIds в selectedIngredients в ReturnProps
+83. components/shared/filters:
+
+- Переименование selectedIds в selectedIngredients
+- Использован useSet для добавления типов теста
+- Добавлен компонент checkbox-filters-group для отображения выбора теста

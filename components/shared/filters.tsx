@@ -28,9 +28,13 @@ interface IPriceProps {
 
 export const Filters: React.FC<IProps> = ({ className }) => {
   // 67. Добавление хука для получения ingredients
-  const { ingredients, loading, selectedIds, onAddId } = useFilterIngredients();
+  const { ingredients, loading, selectedIngredients, onAddId } =
+    useFilterIngredients();
 
   const [sizes, { toggle: toggleSizes }] = useSet(new Set<string>([]));
+  const [pizzaTypes, { toggle: togglePizzaTypes }] = useSet(
+    new Set<string>([])
+  );
 
   const [prices, setPrice] = useState<IPriceProps>({
     priceFrom: 0,
@@ -49,6 +53,18 @@ export const Filters: React.FC<IProps> = ({ className }) => {
     text: item.name,
   }));
 
+  React.useEffect(
+    () =>
+      console.log({
+        prices,
+        pizzaTypes,
+        sizes,
+        ingredients,
+        selectedIngredients,
+      }),
+    [prices, pizzaTypes, sizes, ingredients, selectedIngredients]
+  );
+
   return (
     <div className={cn("sticky top-[130px]", className)}>
       <Title text="Фильтрация" size="sm" className="mb-5 font-bold" />
@@ -59,6 +75,18 @@ export const Filters: React.FC<IProps> = ({ className }) => {
         <FilterCheckbox text="Можно собирать" value="1" />
         <FilterCheckbox text="Новинки" value="2" />
       </div> */}
+
+      <CheckboxFilterGroup
+        title="Тип теста"
+        name="pizzaTypes"
+        className="mb-5"
+        onClickCheckbox={togglePizzaTypes}
+        selected={pizzaTypes}
+        items={[
+          { text: "Тонкое", value: "1" },
+          { text: "Традиционное", value: "2" },
+        ]}
+      />
 
       <CheckboxFilterGroup
         title="Размеры"
@@ -116,7 +144,7 @@ export const Filters: React.FC<IProps> = ({ className }) => {
         items={items}
         loading={loading}
         onClickCheckbox={onAddId}
-        selected={selectedIds}
+        selected={selectedIngredients}
         name="ingredients"
       />
     </div>
