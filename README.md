@@ -155,4 +155,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 76. components/shared/checkbox-filters-group. Добавление свойства selectedIDs: Set<string> в interface IProps  
 77. components/shared/filters. Передача selectedIDs={selectedIds} в виде пропса в CheckboxFilterGroup  
 78. components/shared/checkbox-filters-group. Извлечение свойства selectedIDs из пропсов, а также передача checked={selectedIDs.has(item.value)} в виде пропса в FilterCheckbox  
-79. components/shared/filters. Добавляем логику для фильтрации по цене
+79. components/shared/filters. Добавляем логику для фильтрации по цене  
+80. components/shared/checkbox-filters-group:
+
+- Изменение на не обязательный параметр defaultItems в IProps
+- Переименование selectedIDs в selected
+- Изменено логика отображения в случае, если showAll false
+
+81.

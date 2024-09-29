@@ -15,14 +15,14 @@ type Item = FilterCheckboxProps;
 interface IProps {
   title: string;
   items: Item[];
-  defaultItems: Item[];
+  defaultItems?: Item[];
   limit?: number;
   loading?: boolean;
   searchInputPlaceholder?: string;
   onClickCheckbox?: (id: string) => void;
   defaultValue?: string[];
   className?: string;
-  selectedIDs: Set<string>;
+  selected: Set<string>;
   name?: string;
 }
 
@@ -35,7 +35,7 @@ export const CheckboxFilterGroup: React.FC<IProps> = ({
   searchInputPlaceholder = "Поиск...",
   onClickCheckbox,
   defaultValue,
-  selectedIDs,
+  selected,
   name,
   className,
 }) => {
@@ -68,7 +68,7 @@ export const CheckboxFilterGroup: React.FC<IProps> = ({
     ? items.filter((item) =>
         item.text.toLowerCase().includes(searchValue.toLocaleLowerCase())
       )
-    : defaultItems.slice(0, limit);
+    : (defaultItems || items).slice(0, limit);
 
   return (
     <div className={className}>
@@ -88,7 +88,7 @@ export const CheckboxFilterGroup: React.FC<IProps> = ({
         {list.map((item, index) => (
           <FilterCheckbox
             onCheckedChange={() => onClickCheckbox?.(item.value)}
-            checked={selectedIDs?.has(item.value)}
+            checked={selected?.has(item.value)}
             key={index}
             value={item.value}
             text={item.text}
